@@ -5,37 +5,914 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Bangers&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+  <style>    
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;      
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+     a
+     {
+	text-decoration: none;
+      }
+    img
+    {
+      aspect-ratio: 1;
+      object-fit: fill;
+    }
+    .heading-con
+    {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color:rgb(255, 255, 255);
+      box-shadow: 0px 7px 15px rgba(0, 153, 255, 0.329);
+    }
+    
+    .nav-btns
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-btns ul li
+    {
+      background-color: white;
+      color: #2b7f8a;
+      border: 1px solid #2b7f8a;
+      margin: 2px 4px;
+    }
+    .nav-btns ul li:hover
+    {
+      text-decoration: none;
+      color: white;
+      background-color: #2b7f8a;
+    }
+    .nav-btns ul li a:hover
+    {
+      text-decoration: none;
+      color: white;
+    }
+    .nav-btns .writer-btn
+    {
+      background-color: green;
+      color: white;
+    }
+    .nav-btns .writer-btn:hover
+    {
+      color: green;
+      background-color: white;
+      border: 1px solid green;
+    }
+    .row
+    {
+      margin: 0;
+    }
+    .intro
+    {
+      height: 45vh;
+      background-color:rgba(0, 0, 0,0.7);
+      background-blend-mode: multiply;
+      background-image: url("img/blog.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      color: rgb(214, 214, 16);
+      text-align: center;
+      padding: 16px;
+    }
+    .introMsg
+    {
+      height: 45vh;      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgb(214, 214, 16);
+      background-color: rgba(114, 14, 7, 0.8);
+      background-image: url("img/blog.jpg");
+      background-blend-mode: multiply;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-size: 30px;
+      text-align: center;
+      padding: 16px;
+
+    }
+    .fBlog
+    {
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 60px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .article-con
+    {
+      padding: 20px;
+    }
+    .article-container
+    {
+      height: fit-content;
+    }
+    .article-one, .article-two, .article-three, .article-four, .article-five
+    {
+      width: 100%;
+      height: 250px;
+      background-color: chocolate;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-blend-mode: darken;
+      border: 1px solid rgb(255, 255, 255);
+    }
+    .article-one
+    {
+      background-image: url("img/mic.jpg");
+    }    
+    .article-two
+    {
+      background-image: url("img/bmwi.jpg");
+    }    
+    .article-three
+    {
+      background-image: url("img/camera.jpg");
+    }
+    .article-four
+    {
+      background-image: url("img/keyboard.jpg");
+    }
+    .article-five
+    {
+      background-image: url("img/joystick.jpg");
+    }
+    .article-text
+    {
+      height: 100%;
+      color: white;
+      background-color: rgba(210, 105, 30, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .article-text a
+    {
+      color: white;
+      text-decoration: none;    
+      transition: 0.1s ease-in-out; 
+    }
+    .article-text a:hover
+    {
+      font-size: larger;
+      color: rgb(0, 0, 0);
+      text-shadow: 0 0 3px rgb(255, 255, 255), 0 0 5px rgb(255, 255, 255),0 0 8px rgb(255, 255, 255);
+      padding: 10px 8px;
+    }
+    .more-articles
+    {
+      height: 80vh;
+      overflow: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+      box-shadow: 0px 3px 15px 1px #00000096 inset;
+    }
+    .more-article-content
+    {
+      width: 40%;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 12px;
+      margin: 5px;
+      box-shadow: 0px 3px 15px 1px #2b7f8a;
+      overflow: auto;
+    }
+    .modal-body
+    {
+      height: 70vh;
+      overflow: auto;
+    }
+    .more-article-content input
+    {
+      text-decoration: none;
+      background-color: transparent;
+      color: blue;
+      padding: 0;
+    }
+    .modal-img
+    {
+      height: 200px;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    .whitespace
+    {
+      height: 10vh;
+    }
+    .olist
+    {
+      width: 50%;
+      padding: 10px;
+      list-style-type: square;
+      font-weight: bold;
+    }
+    .pHeading
+    {
+      text-decoration: none;
+      list-style-type: none;
+    }
+    .ftr h1
+    {
+      color: rgb(255, 255, 0);
+      text-shadow: 2px 2px 6px rgb(0, 0, 0);
+    }
+    .related-posts
+    {
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      color: rgb(0, 25, 80);
+      border-top: 2px solid rgb(255, 255, 0);
+      border-left: 2px solid rgb(255, 255, 0);
+      background-color: rgba(255, 255, 0, 0.616);
+    }
+    .footer
+    {      
+      height: 40vh;
+      width: 96.7%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+    .footer-comment
+    {
+      width: 50%;
+      height: 100%;
+      padding: 10px;
+      background-color: white;
+      text-align: center;
+      border: none;
+      box-shadow: 0px -1px 6px 1px rgba(0, 0, 0, 0.705) inset;
+    }
+    textarea
+    {
+      width: 400px;
+      max-height: 100px;
+      padding: 4px;
+      border: none;
+      box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.767);
+    }
+    .contact-us
+    {
+      width: 50%;
+      height: 100%;
+      padding: 10px;
+      color: yellow;
+      background-color: rgb(0, 0, 0);
+      text-align: center;
+    }
+    .contact-us ol
+    {
+      list-style-type: none;
+    }
+    #in-submit
+    {
+      padding: 4px;
+      border: none;
+      box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.836);
+    }
+  </style>
+
   <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid heading-con sticky-top">
       <div class="jumbotron-fluid">
-        <h1>My Blog</h1>      
-        <p>The greatest blog to be ever made</p>
-      </div>     
+        <h1>TouchBase Blog</h1>        
+      </div>
+      <div class="jumbotron-fluid nav-btns">
+          <ul>
+            <li class="btn"><a href="#feature">Feature Blogs</a></li>
+            <li class="btn"><a href="#more-articles">More Articles</a></li>
+            <li class="btn"><a href="#external">External Posts</a></li>
+            <li class="btn"><a href="#contact">Contact</a></li>
+            <li class="writer-btn btn" data-toggle="modal" data-target="#myModal">wanna write ?</li>
+          </ul>
+        </div> 
+    </div>
+    
+    
+    <div class="intro jumbotron-fluid">      
+    </div>
+    
+    <div class="introMsg container-fluid">
+      <p>
+        Come along and explore a wide range of articles.
+        <br>
+        Share your interests with others
+      </p>
+    </div>
+
+    <myTag id="feature"></myTag>
+    <br><br>
+    <div class="jumbotron-fluid fBlog">
+      <p>
+        FEATURE BLOGS...
+      </p>
     </div>
     
     <br/><br/>
-    <div class="row">
-      <div class="col"><img onclick="location.href='page.html'" class="img-thumbnail" src="img/animal.jpg" alt="Animal"></div>
-      <div class="col"><img class="img-thumbnail" src="img/forest.jpg" alt="forest"></div>
-      <div class="col"><img class="img-thumbnail" src="img/bird.jpg" alt="bird"></div>
+
+    <!-- Main blog section -->
+      
+      <!-- one -->
+
+    <div class="container-fluid article-container">
+      <div class="article-two">
+        <div class="article-text">
+
+          <h2><a href="cars.html" target="_blank">Read more on Automobiles</a></h2>
+
+        </div>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="col"><img class="img-thumbnail" src="img/bmw.jpg" alt="study"></div>
-      <div class="col"><img class="img-thumbnail" src="img/music.jpg" alt="bmw"></div>
-      <div class="col"><img class="img-thumbnail" src="img/study.jpg" alt="book"></div>
+    <!-- two -->
+    
+    <div class="container-fluid article-container">
+      <div class="article-three">
+        <div class="article-text">
+
+          <h2><a href="photography.html" target="_blank">Read more on Photography</a></h2>
+          
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-      <h1>Notice Board</h1>
-      <p>The blockquote element is used to present content from another source:</p>
-      <blockquote class="blockquote">
-        <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
-        <footer class="blockquote-footer">From WWF's website</footer>
-      </blockquote>
+    <!-- Three -->
+
+    <div class="container-fluid article-container">
+      <div class="article-four">
+        <div class="article-text">
+
+          <h2><a href="tech.html" target="_blank">Read more on Technology</a></h2>
+          
+        </div>
+      </div>
     </div>
+
+    <!-- Four -->
+
+    <div class="container-fluid article-container">
+      <div class="article-five">
+        <div class="article-text">
+
+          <h2><a href="gaming.html" target="_blank">Read more on Gaming</a></h2>
+          
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="whitespace container-fluid"></div>
+    <myTag id="more-articles"></myTag>
+    <br><br><br><br>
+    <div class="container-fluid article-con">
+
+      
+      <h1>More Articles</h1>  
+
+      <div class="more-articles d-flex flex-wrap">
+
+        <!-- Article One -->
+        <div class="more-article-content">
+          <p>
+            <b>Programming: A creative skill that can change the world</b>
+            <br><br>
+             Programming is the process of creating instructions for computers to follow.
+             It is a creative skill that allows you to build anything from simple websites to complex software applications....
+            <input value="read more" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-one">
+          </p>
+          
+
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal-one">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+      
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Programming: A creative skill that can change the world</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <img src="img/laptop.jpg" alt="" class="modal-img">
+                  <p>
+                    Programming is the process of creating instructions for computers to follow.
+                  It is a creative skill that allows you to build anything from simple websites to complex software applications.
+                  Programming is also a powerful tool that can be used to solve problems and make the world a better place.
+                  </p>
+
+                  <br><br>
+                  One of the best things about programming is that it is relatively easy to learn.
+                  There are many resources available online and in libraries that can teach you the basics of programming. 
+                  Once you have a good foundation, you can start to learn more advanced topics and build your own projects.
+
+                  <br><br>
+                  If you are interested in learning to program, there are a few things you can do to get started:
+                  <br><br>
+
+                  <ol>
+                    <li>
+                      Choose a programming language. There are many different programming languages available 
+                      each with its own strengths and weaknesses. Some popular languages for beginners include Python, JavaScript, and Java.
+                    </li><br>
+
+                    <li>
+                      Find a good tutorial. There are many tutorials available online and in libraries that can teach you the basics of programming. 
+                      Choose a tutorial that is written in a language that you can understand and that covers the topics that you are interested in.                      
+                    </li><br>
+
+                    <li>
+                      Start coding! The best way to learn to program is by doing. Once you have a basic understanding of the language you have chosen,
+                       start writing simple programs. As you become more comfortable, you can start to build more complex projects.
+                    </li><br>
+                  </ol>
+
+                  There are many different benefits to learning to program. Programming can help you to develop your problem-solving skills,
+                   your creative thinking skills, and your ability to learn new things. Programming can also lead to a rewarding career in the tech industry.
+
+                   <br><br>
+                   If you are interested in learning to program, there are many resources available to help you get started.
+                   Don't be afraid to ask for help from friends, family, or online communities.
+                   With a little effort, you can learn to program and build amazing things.
+
+                   <br><br>
+                   Here are a few ideas for programming projects that you can build to start practicing your skills:
+                   <br>
+                   <ol>
+                    <li>A simple website</li>
+                    <li>A calculator app</li>
+                    <li>A game</li>
+                    <li>A to-do list app</li>
+                    <li>A social media app</li>
+                   </ol>
+                   <br>
+                   Once you have built a few basic projects, you can start to think about more complex projects that you would like to build.
+                   The possibilities are endless!
+                </div>
+        
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Article two-->
+
+        <div class="more-article-content">
+          <p>
+            <b>Web development: A beginner's guide</b>
+            <br><br>
+            Web development is the process of creating and maintaining websites.
+            It encompasses a wide range of skills, including web design, web programming, and web publishing...
+            <input value="read more" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-two">
+          </p>
+          
+
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal-two">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+      
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Web development: A beginner's guide</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <img src="img/keyboard.jpg" alt="" class="modal-img">
+                  Web development is the process of creating and maintaining websites.
+                  It encompasses a wide range of skills, including web design, web programming, and web publishing.
+                  <br><br>
+                  To become a web developer, you need to learn the three core languages of the web: HTML, CSS, and JavaScript.
+                  <br><br>
+                  <ol>
+                    <li>
+                      <b>HTML (HyperText Markup Language)</b> is the language used to create the structure of a web page.
+                      It defines the different elements of a web page, such as headings, paragraphs, images, and links.
+                    </li><br>
+                    <li>
+                      <b>CSS (Cascading Style Sheets)</b> is the language used to style web pages.
+                      It controls the appearance of different elements on a web page, such as the font, color, and size.
+                    </li><br>
+                    <li>
+                      <b>JavaScript</b> is the language used to add interactivity to web pages.
+                      It allows you to create dynamic effects, such as menus, forms, and animations.
+                    </li><br>
+                  </ol>
+
+                  Once you have a good understanding of HTML, CSS, and JavaScript,
+                  you can start to learn more advanced web development technologies, such as Python and Django.
+                  <br><br>
+                  <ol>
+                    <li><b>Python</b> is a general-purpose programming language that is often used for web development.
+                      It is a powerful and flexible language that can be used to build a wide range of web applications.
+                    </li><br>
+                    <li><b>Django</b> is a Python web framework that makes it easy to develop and deploy web applications.
+                      It provides a number of features that make it a popular choice for web developers,
+                      such as a built-in object-relational mapper (ORM) and a templating system.
+                    </li><br>
+                  </ol>
+                  If you are interested in becoming a web developer, there are many resources available to help you get started.
+                  There are many online courses and tutorials that can teach you the basics of HTML, CSS, JavaScript, Python, and Django.
+                  <br><br>
+                  Here are a few tips for getting started with web development:
+                  <br><br>
+                  <ol>
+                    <li>Start by learning the basics of HTML, CSS, and JavaScript.
+                      There are many resources available online and in libraries that can teach you the basics of these languages.
+                    </li><br>
+                    <li>Once you have a good understanding of HTML, CSS, and JavaScript, start building simple websites.
+                      This is the best way to learn how to use these languages to create real-world web applications.
+                    </li><br>
+                    <li>
+                      As you become more comfortable with web development, you can start to learn more advanced technologies, such as Python and Django.
+                    </li><br>
+                    <li>Don't be afraid to ask for help from friends, family, or online communities.
+                      There are many people who are willing to help beginners learn web development.
+                    </li><br>
+                  </ol>
+                  With a little effort, you can learn to be a web developer and create amazing websites.
+                </div>
+        
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- article three -->
+        <div class="more-article-content">
+
+          <p>
+            <b>Getting ready for workplace placement after varsity</b>
+            <br><br>
+            Workplace placement is a great opportunity to gain real-world experience and learn from professionals in your field.
+            <br>
+            If you are about to start a workplace placement, he...
+            <input value="read more" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-three">
+          </p>
+          
+
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal-three">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+      
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Getting ready for workplace placement after varsity</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <img src="img/workplace.jpg" alt="" class="modal-img">
+                  Workplace placement is a great opportunity to gain real-world experience and learn from professionals in your field. 
+                  It can also help you to develop your skills and knowledge, and make connections with potential employers.
+
+                  <br><br>
+                  If you are about to start a workplace placement, here are a few things you can do to prepare:
+                  <br><br>
+                  <ol>
+                    <li>Research the company. Before you start your placement, learn as much as you can about the company and the 
+                      role you will be playing. This will help you to understand what is expected of you and to make the most of your 
+                      experience.
+                    </li><br>
+                    <li>Set goals for yourself. What do you want to achieve during your placement? Once you have set some goals, you
+                      can develop a plan for how to achieve them.
+                    </li><br>
+                    <li>Be prepared to learn. One of the best things about workplace placement is the opportunity to learn from 
+                      professionals in your field. Be prepared to ask questions and to take on new challenges.
+                    </li><br>
+                    <li>Be professional. Workplace placement is a professional environment, so it is important to dress and behave
+                      appropriately. Be punctual, reliable, and respectful of your colleagues.
+                    </li><br>
+                    <li>Be proactive. Don't wait for someone to tell you what to do. Be proactive and take on new tasks. Show your 
+                      initiative and willingness to learn.
+                    </li><br>
+                  </ol>
+
+                  Here are a few additional tips for making the most of your workplace placement:
+                  <br><br>
+                  <ol>
+                    <li>Network with your colleagues. Get to know your colleagues and build relationships with them. This can help 
+                      you to learn more about the company and to make connections with potential employers.
+                    </li><br>
+                    <li>Get involved in company events. If the company hosts any events, such as social gatherings or training 
+                      workshops, make sure to attend them. This is a great way to meet new people and to learn more about the company culture.
+                    </li><br>
+                    <li>Ask for feedback. Ask your colleagues and supervisor for feedback on your performance. This will help you to 
+                      identify your strengths and weaknesses, and to make improvements.
+                    </li><br>
+                  </ol>
+
+                  Workplace placement can be a valuable experience that can help you to launch your career. By following these tips, 
+                  you can make the most of your placement and set yourself up for success.  
+                </div>
+        
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="more-article-content">
+
+          <p>
+            <b>Gaming: A fun and educational activity for students</b>
+            <br><br>
+            Gaming is a popular activity for people of all ages, but it can be especially beneficial for students. Gaming can help
+             students to develop a variety of skills, including problem-solvi...
+            <input value="read more" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-four">
+          </p>
+          
+
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal-four">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+      
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">
+                    Gaming: A fun and educational activity for students</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <img src="img/joystick.jpg" alt="" class="modal-img">
+                  Gaming is a popular activity for people of all ages, but it can be especially beneficial for students. Gaming can help 
+                  students to develop a variety of skills, including problem-solving, critical thinking, and teamwork. It can also help 
+                  students to learn new concepts and to apply their knowledge in new ways.
+                  <br><br>
+                  Here are a few of the benefits of gaming for students:
+                  <br><br>
+                  <ol>
+                    <li>Improved problem-solving skills: Many games require players to solve puzzles and overcome challenges. This 
+                      can help students to develop their problem-solving skills and to learn how to think critically.
+                    </li><br>
+                    <li>Increased critical thinking skills: Gaming can also help students to develop their critical thinking skills. Players 
+                      often need to make quick decisions and to adapt to changing situations. This can help students to learn how to 
+                      think on their feet and to make informed decisions.
+                    </li><br>
+                    <li>Enhanced teamwork skills: Many games require players to work together to achieve a common goal. This can 
+                      help students to develop their teamwork skills and to learn how to communicate and collaborate effectively with others.
+                    </li><br>
+                    <li>Improved learning: Gaming can also be used to enhance learning. There are many educational games that can 
+                      teach students about a variety of subjects, such as math, science, and history. Educational games can be a fun 
+                      and engaging way for students to learn new concepts and to apply their knowledge in new ways.
+                    </li>
+                  </ol>
+
+                  In addition to these specific benefits, gaming can also help students to improve their overall academic performance. 
+                  Studies have shown that students who play video games tend to have better grades and test scores than students who do not play video games.
+                  <br><br>
+                  Of course, it is important to moderate your gaming and to make sure that it is not interfering with your other 
+                  responsibilities, such as schoolwork and chores. However, when gaming is done in moderation, it can be a fun and 
+                  educational activity for students of all ages.
+                  <br><br>
+                  Here are a few tips for parents and teachers on how to encourage students to use gaming in a positive way:
+                  <br><br>
+                  <ol>
+                    <li>Choose educational games: There are many educational games available that can teach students about a 
+                      variety of subjects. When choosing games for your child, look for games that are aligned with their school 
+                      curriculum and that are appropriate for their age and skill level.
+                    </li><br>
+                    <li>Set limits on gaming: It is important to set limits on how much time your child spends gaming. Too much gaming 
+                      can lead to problems such as obesity, sleep deprivation, and addiction.
+                    </li><br>
+                    <li>Play games together: Playing games together is a great way to bond with your child and to learn more about 
+                      their interests. It is also a good way to monitor their gaming habits and to make sure that they are playing 
+                      appropriate games.
+                    </li><br>
+                    <li>Encourage students to use gaming to learn: Gaming can be a powerful tool for learning. Encourage students to 
+                      use games to learn new concepts and to apply their knowledge in new ways.
+                    </li>
+                  </ol>
+                  Gaming can be a fun and educational activity for students of all ages. By following these tips, parents and teachers 
+                  can help students to use gaming in a positive way.
+                </div>
+        
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+      
+      <myTag id="external"></myTag>
+      
+      <br><br><br>
+      <div class="container-fluid ftr">
+        <br><br>
+        <h1>Related Posts</h1>
+        
+        <div class="container-fluid related-posts">
+          <ol class="olist">
+            <li class="pHeading">
+              <b>Technology</b>
+            </li><br>
+            <li>
+              <a target="_blank" href="https://techcrunch.com/2023/08/26/microsoft-brings-python-to-excel-cruise-reduces-fleet-following-crash-and-mrbeast-creates-controversy/">Microsoft brings Python to Excel</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://www.theverge.com/2023/10/11/23913405/riaa-ai-voice-cloning-threat-copyright-ustr">RIAA wants AI voice cloning sites</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://www.theverge.com/2023/10/12/23914060/gm-uservices-api-software-apps-car-sdv">GM now has its own API for software developers</a>
+            </li><br>
+
+            <br>
+            <li class="pHeading">
+              <b>Photography</b>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://www.photographyblog.com/reviews/sony_zv_e1_review">SONY ZV E1 Review</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://photofocus.com/photography/using-dodge-and-burn-to-add-depth-and-dimension-to-your-photos/">Add depth and dimension using dogdge and burn</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://photofocus.com/inspiration/the-power-of-looking-up-in-architecture-photography/">The power of looking up in architecture photography</a>
+            </li><br>
+
+            <br>
+            <li class="pHeading">
+              <b>Gaming</b>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://www.pcgamer.com/call-of-duty-modern-warfare-3-beta-times/">Modern Warfare 3 beta weekend times and how to redeem a beta code</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://www.pcgamer.com/best-open-world-games/">Best Open world Games</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://www.gamespot.com/reviews/forza-motorsport-review/1900-6418125/">Forza Motorsport Review - Hitting The Apex</a>
+            </li><br>
+            <br>
+
+            <li class="pHeading">
+              <b>Books</b>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://arstechnica.com/">technology: computing, science, and security</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://stackoverflow.com/">A question-and-answer website for programmers</a>
+            </li><br>
+
+            <li>
+              <a target="_blank" href="https://www.adafruit.com/">An online retailer that sells a wide range of electronics components and kits</a>
+            </li><br>
+
+
+          </ol>
+  
+          
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container-fluid footer" id="contact">
+      <div class="footer-comment">
+        <h2>Any Comment ?</h2>
+        <br>
+        <form action="#" method="post">
+          <textarea name="cBox" id="commentBox" cols="30" rows="4" placeholder="Write your thoughts here and send them to us! We'd love to here from you"></textarea>
+          <br><br>
+          <input id="in-submit" type="submit" value="submit">
+        </form>
+      </div>
+
+      <div class="contact-us">
+        <h2>Keep in touch</h2>
+        <br><br>
+        <ol>
+          <li>012 345 6789</li><br>
+          <li>info@theblog.com</li><br>
+        </ol>
+
+      </div>
+
+    </div>
+
+    <!-- extras -->
+
+    
+  
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Login to Continue...</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form action="/SLP-BlogOne/admin.html" target="_blank">
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+              </div>
+              <div class="form-group form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
     
     <script src="js/jquery.js"></script>
     <script src="js/popper.js"></script>
